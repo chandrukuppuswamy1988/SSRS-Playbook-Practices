@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>WideWorldImportersDW</DataSourceReference>
+      <CommandText>SELECT        fs.[WWI Invoice ID], fs.[Invoice Date Key], dc.Customer, fs.Description, fs.Quantity, fs.[Total Including Tax]
+FROM            Fact.Sale AS fs INNER JOIN
+                         Dimension.Customer AS dc ON dc.[Customer Key] = fs.[Customer Key]</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="WWI_Invoice_ID">
+        <DataField>WWI Invoice ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Invoice_Date_Key">
+        <DataField>Invoice Date Key</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Customer">
+        <DataField>Customer</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Description">
+        <DataField>Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Quantity">
+        <DataField>Quantity</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Total_Including_Tax">
+        <DataField>Total Including Tax</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
